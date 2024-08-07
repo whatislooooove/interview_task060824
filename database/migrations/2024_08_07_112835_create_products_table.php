@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('external_code')->unique();
-            $table->string('name', 50);
-            $table->string('description', 450);
+            $table->text('name');
+            $table->text('description');
             $table->unsignedInteger('price');
             $table->unsignedTinyInteger('discount (%)');
         });

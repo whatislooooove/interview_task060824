@@ -10,3 +10,4 @@ Route::get('/', function () {
 
 Route::get('/products', [ProductsController::class, 'index']);
 Route::get('/import', [ImportController::class, 'index']);
+Route::post('/import/upload', [ImportController::class, 'upload']);
