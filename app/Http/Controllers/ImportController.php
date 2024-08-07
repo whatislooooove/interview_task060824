@@ -6,6 +6,6 @@ class ImportController extends Controller
 {
     public function index(): string
     {
-        return 'Page for import products';
+        return view('import');
     }
 }
