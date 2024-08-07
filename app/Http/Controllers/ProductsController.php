@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+
 class ProductsController extends Controller
 {
     public function index(): string
     {
-        return 'Products will be here';
+        $products = Product::all();
+        return 'Products now: ' . count($products);
     }
 }
