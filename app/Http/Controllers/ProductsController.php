@@ -9,6 +9,11 @@ class ProductsController extends Controller
     public function index(): string
     {
         $products = Product::all();
-        return 'Products now: ' . count($products);
+        return view('products', compact('products'));
+    }
+
+    public function show(Product $product)
+    {
+        return view('show', compact('product'));
     }
 }
