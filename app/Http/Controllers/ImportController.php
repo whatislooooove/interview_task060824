@@ -15,9 +15,8 @@ class ImportController extends Controller
 
     public function upload(Request $req)
     {
-        //сделать сообщение об импорте
         Excel::import(new ProductsImport, $req->file('file'));
-        $result = true;
-        return view('import', ['result']);
+        $res = true;
+        return view('import', compact('res') );
     }
 }
