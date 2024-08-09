@@ -31,8 +31,8 @@ class ProductsImport implements ToCollection, WithHeadingRow
 
         if ($httpCode == 200) {
             $contents = file_get_contents($url);
-            Storage::put('/img/' . basename($url), $contents);
-            return Storage::url('/app/img/' . basename($url)) . ', ';
+            Storage::put('/public/img/' . basename($url), $contents);
+            return Storage::url('/img/' . basename($url)) . ', ';
         }
 
         return '';

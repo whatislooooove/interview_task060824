@@ -8,7 +8,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ImportController extends Controller
 {
-    public function index(): string
+    public function index()
     {
         return view('import');
     }
