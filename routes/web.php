@@ -12,3 +12,7 @@ Route::get('/products', [ProductsController::class, 'index'])->name('product.ind
 Route::get('/products/{product}', [ProductsController::class, 'show'])->name('product.show');
 Route::get('/import', [ImportController::class, 'index'])->name('import.index');
 Route::post('/import/upload', [ImportController::class, 'upload'])->name('import.upload');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
