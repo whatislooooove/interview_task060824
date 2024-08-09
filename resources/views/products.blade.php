@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        @if(count($products) === 0)
+            <h2>Database with products is empty</h2>
+            <a href="{{route('import.index')}}">
+                <h3>Import</h3>
+            </a>
+        @endif
         <div class="row row-cols-1 row-cols-md-5 g-4">
             @foreach ($products as $item)
                 <div class="col">

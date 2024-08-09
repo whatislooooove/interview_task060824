@@ -45,7 +45,7 @@ class ProductsImport implements ToCollection, WithHeadingRow
                 'name' => $data['naimenovanie'],
                 'description' => $data['opisanie'],
                 'price' => (int)$data['cena_cena_prodazi'],
-                'discount (%)' => ((int)$data['cena_cena_prodazi'] - (int)$data['zakupocnaia_cena']) * 100 / (int)$data['cena_cena_prodazi']
+                'discount' => ((int)$data['cena_cena_prodazi'] - (int)$data['zakupocnaia_cena']) * 100 / (int)$data['cena_cena_prodazi']
             ];
 
             return Product::create($attributes)->id;

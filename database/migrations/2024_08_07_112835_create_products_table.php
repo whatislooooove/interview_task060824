@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('name');
             $table->text('description');
             $table->unsignedInteger('price');
-            $table->unsignedTinyInteger('discount (%)');
+            $table->unsignedTinyInteger('discount');
         });
     }
 

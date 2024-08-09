@@ -12,7 +12,6 @@ class ProductsController extends Controller
         $products = DB::table('products')
             ->leftJoin('product_images', 'products.id', '=', 'product_images.product_id')
             ->paginate(10, ['products.id', 'name', 'description', 'image_path']);
-            //->get(['products.id', 'name', 'description', 'image_path']);
         foreach($products as &$product) {
             $product->image_path = explode(', ', $product->image_path)[0];
         }
@@ -22,6 +21,13 @@ class ProductsController extends Controller
 
     public function show(Product $product)
     {
-        return view('show', compact('product'));
+        $productInfo = DB::table('products')
+            ->leftJoin('product_images', 'products.id', '=', 'product_images.product_id')
+            ->leftJoin('extra_fields', 'products.id', '=', 'extra_fields.product_id')
+            ->where('products.id', '=', $product->id)
+            ->get();
+        $productInfo[0]->image_path = array_filter(explode(', ', $productInfo[0]->image_path));
+
+        return view('show', compact('productInfo'));
     }
 }
