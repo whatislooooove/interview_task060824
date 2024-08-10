@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('content')
     <div class="container form-group my-4">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @if (isset($res))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Data updated successfully.</strong>
